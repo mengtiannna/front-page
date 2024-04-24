@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/locale/zh_CN';
 import './index.less';
+import Home from './home'
 
 dayjs.locale('zh-cn');
 
@@ -29,18 +30,6 @@ const App = () => {
     </ConfigProvider>
   );
 };
-
-function Home() {
-  return (
-    <>
-      <h1>Welcome!</h1>
-      <p>
-        Check out the <Link to="/blog">blog</Link> or the{" "}
-        <Link to="users">users</Link> section
-      </p>
-    </>
-  );
-}
 
 function BlogApp() {
   return (
