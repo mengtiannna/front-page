@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const service = axios.create({
-  baseURL: '', // API基础地址
+  // https://crmtest6.kstore.shop/supplierbff/
+  baseURL: 'https://xxx.xxx.xxx/supplierbff/', // API基础地址
   timeout: 5000, // 请求超时时间
 });
 
@@ -26,8 +27,8 @@ service.interceptors.response.use(
   response => {
     // 对响应数据做点什么
     const res = response.data;
-    // 你可以根据自己项目的需要来定制响应代码的处理逻辑
-    if (res.code !== 200) {
+    // todo你可以根据自己项目的需要来定制响应代码的处理逻辑
+    if (res.code !== 'K000000') {
       // 处理错误响应
       console.error('Error Response:', res);
       return Promise.reject(new Error(res.message || 'Error'));

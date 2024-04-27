@@ -14,6 +14,8 @@ import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/locale/zh_CN';
 import './index.less';
 import Home from './home'
+import Goods from './goods'
+import About from './about'
 
 dayjs.locale('zh-cn');
 
@@ -23,29 +25,12 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog/*" element={<BlogApp />} />
-          <Route path="/users/*" element={<UserApp />} />
+          <Route path="/goods" element={<Goods />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
   );
 };
-
-function BlogApp() {
-  return (
-    <Routes>
-      <Route index element={<h1>Blog Index</h1>} />
-      <Route path="posts" element={<h1>Blog Posts</h1>} />
-    </Routes>
-  );
-}
-
-function UserApp() {
-  return (
-    <Routes>
-      <Route index element={<h1>Users Index</h1>} />
-    </Routes>
-  );
-}
 
 createRoot(document.getElementById('root')).render(<App />);
