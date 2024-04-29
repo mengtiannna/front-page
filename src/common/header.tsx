@@ -39,7 +39,7 @@ export default function Header(props) {
             key: "/goods",
           },
           {
-            label: "关于我们",
+            label: "关于我们1",
             key: "/about",
           },
         ]}
