@@ -9,6 +9,7 @@ import banner from "../assets/banner.png";
 import rowIcon from "../assets/row-icon.png";
 import tu1 from "../assets/tu1.png";
 import reactPng from "../assets/react.svg";
+import "./index.less";
 
 export default function Home(props) {
   const [data, setData] = useState([]);

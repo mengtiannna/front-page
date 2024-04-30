@@ -1,9 +1,10 @@
+import * as React from "react";
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { get } from "../axios";
-import logo from "../assets/logo.png";
 import Header from "../common/header";
-import * as React from "react";
+import Bottom from "../common/bottom.tsx";
+import './index.less';
 
 export default function About(props) {
   const [checkedIndex, setCheckedIndex] = useState(null);
@@ -27,9 +28,10 @@ export default function About(props) {
     init();
   }, []);
   return (
-    <div>
+    <div className="about">
       <Header />
       about
+      <Bottom />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Tabs } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
+import "./header.less";
 
 export default function Header(props) {
   let navigate = useNavigate();

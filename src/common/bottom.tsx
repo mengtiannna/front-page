@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Tabs } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import logo from "../assets/logo.png";
+import "./bottom.less";
 
 export default function Bottom(props) {
   // let navigate = useNavigate();
