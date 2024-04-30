@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: space-between;
   padding-right: 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
   :where(.css-dev-only-do-not-override-mzwlov).ant-tabs-top
   > .ant-tabs-nav::before,
   :where(.css-dev-only-do-not-override-mzwlov).ant-tabs-top
@@ -23,6 +28,7 @@
 
 @media (min-width: 768px) {
   .header {
+    position: static;
     padding-right: 150px;
     .logo {
       width: 180px;

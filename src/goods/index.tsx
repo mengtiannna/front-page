@@ -5,6 +5,7 @@ import { get } from "../axios";
 import Header from "../common/header";
 import Bottom from "../common/bottom.tsx";
 import './index.less';
+import aboutTU from "../assets/about-tu.png";
 
 export default function Goods(props) {
   const [checkedIndex, setCheckedIndex] = useState(null);
@@ -29,9 +30,10 @@ export default function Goods(props) {
   }, []);
   return (
     <div className="goods">
-      <Header />
+      <Header/>
+      <div className="commonImg"><img src={aboutTU} alt=""/></div>
       goods
-      <Bottom />
+      <Bottom/>
     </div>
   );
 }
