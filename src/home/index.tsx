@@ -52,35 +52,40 @@ export default function Home(props) {
           <img className="slide-img" src={banner} alt="" />
         </div>
       </Carousel>
-      <div className="common-title">
-        <div>
-          <img className="rowIcon rowIconLeft" src={rowIcon} alt="" />
-          <span className="title">企业简介</span>
-          <img className="rowIcon" src={rowIcon} alt="" />
-        </div>
-        <div className="sub-title">中国电子器件集成供应链服务商</div>
-      </div>
-      <div className="info-con">
-        <img className="info-img" src={tu1} alt="" />
-        <div className="info-txt-con">
-          <div>
-            <div className="info-title">上海闰芯科技有限公司</div>
-            <div className="info-txt mt20">注册时间：2017年08月31日</div>
-            <div className="info-txt">注册地：中国-上海</div>
-            <div className="info-txt">注册资金：人民币500万元</div>
-            <div className="info-txt mt20">
-              上海闰芯科技有限公司是中国电子器件集成供应链服务商。公司成立于2017年，专业代理经销全球各大优秀品牌的全系列产品。公司成立以来，基于市场电子化、智能化的高速发展，公司目前服务客户群体涵盖汽车电子、工控、电机、移动通讯、智能物联、NB-IOT等行业，公司致力成为国内知名的电子器件供应链服务一站式平台。
-            </div>
-          </div>
-          <div className="info-btn">查看更多</div>
-        </div>
-      </div>
-      <div className="brand-list">
+      <div>
         <div className="common-title">
           <div>
-            <img className="rowIcon rowIconLeft" src={rowIcon} alt="" />
+            <img className="rowIcon rowIconLeft" src={rowIcon} alt=""/>
+            <span className="title">企业简介</span>
+            <img className="rowIcon" src={rowIcon} alt=""/>
+          </div>
+          <div className="sub-title">中国电子器件集成供应链服务商</div>
+        </div>
+        <div className="info-con">
+          <div className="right-info-com">
+            <img className="info-img" src={tu1} alt=""/>
+          </div>
+          <div className="info-txt-con left-info-com">
+            <div>
+              <div className="info-title">上海闰芯科技有限公司</div>
+              <div className="info-txt mt20">注册时间：2017年08月31日</div>
+              <div className="info-txt">注册地：中国-上海</div>
+              <div className="info-txt">注册资金：人民币500万元</div>
+              <div className="info-txt mt20">
+                上海闰芯科技有限公司是中国电子器件集成供应链服务商。公司成立于2017年，专业代理经销全球各大优秀品牌的全系列产品。公司成立以来，基于市场电子化、智能化的高速发展，公司目前服务客户群体涵盖汽车电子、工控、电机、移动通讯、智能物联、NB-IOT等行业，公司致力成为国内知名的电子器件供应链服务一站式平台。
+              </div>
+            </div>
+            <div className="info-btn">查看更多</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="brand-list common-bg">
+        <div className="common-title">
+          <div>
+            <img className="rowIcon rowIconLeft" src={rowIcon} alt=""/>
             <span className="title">代理品牌</span>
-            <img className="rowIcon" src={rowIcon} alt="" />
+            <img className="rowIcon" src={rowIcon} alt=""/>
           </div>
           <div className="sub-title">中国电子器件集成供应链服务商</div>
         </div>
@@ -91,7 +96,7 @@ export default function Home(props) {
           autoplay={false}
           dots={false}
           slidesToShow={slidesToShow}
-          slideToScroll={1}
+          slidesToScroll={1}
           // centerMode={true}
           // centerPadding="40px"
         >
@@ -99,7 +104,7 @@ export default function Home(props) {
             return (
               <div key={item}>
                 <div className="banner-img-box">
-                  <img className="banner-img" src={reactPng} alt="" />
+                  <img className="banner-img" src={reactPng} alt=""/>
                 </div>
                 <div className="banner-txt">
                   <p className="brand-name">上海贝岭{item}</p>

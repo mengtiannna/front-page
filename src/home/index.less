@@ -92,5 +92,22 @@
         font-size: 13px;
       }
     }
+    .ant-carousel .slick-prev, .ant-carousel .slick-next{
+      width: 60px;
+      height: 60px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 4px;
+      margin-top: -30px;
+      inset-inline-end: -83px;
+      &::after{
+        position: static;
+      }
+    }
+    .ant-carousel .slick-next{
+      inset-inline-end: -83px;
+    }
+    .ant-carousel .slick-prev{
+      inset-inline-start: -83px;
+    }
   }
 }
