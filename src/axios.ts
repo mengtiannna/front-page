@@ -2,7 +2,6 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const service = axios.create({
-  // https://crmtest6.kstore.shop/supplierbff/
   baseURL: 'https://xxx.xxx.xxx/supplierbff/', // API基础地址
   timeout: 5000, // 请求超时时间
 });

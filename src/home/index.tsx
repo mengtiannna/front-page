@@ -17,9 +17,9 @@ export default function Home(props) {
   const init = async () => {
     try {
       const response = await get("baseConfig", { param1: "value1" });
-      console.log("response", response);
-      let arr = response?.xxx || [];
-      setData(arr)
+      // console.log("response", response);
+      // let arr = response?.xxx || [];
+      // setData(arr)
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }

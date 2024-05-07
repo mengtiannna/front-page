@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import postcssPresetEnv from 'postcss-preset-env';
-import postcssPxToViewport from 'postcss-px-to-viewport';
+import postcssPxToViewport from 'postcss-px-to-viewport-8-plugin';
 import less from 'less';
 
 // https://vitejs.dev/config/
