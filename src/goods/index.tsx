@@ -1,38 +1,53 @@
 import * as React from "react";
-import { Fragment, useEffect, useState } from "react";
+import {Fragment, useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { get } from "../axios";
+
+import {reducer, Context} from "./context";
+import {init} from "./actions";
+import {main} from "./reducers/main.ts";
 import Header from "../common/header";
 import Bottom from "../common/bottom.tsx";
 import './index.less';
-import aboutTU from "../assets/about-tu.png";
+import goodsTU from "../assets/goods-tu.png";
+import Fitter from "./components/fitter.tsx";
+
 
 export default function Goods(props) {
-  const [checkedIndex, setCheckedIndex] = useState(null);
-  const [reasons, setReasons] = useState([]);
-  // 其它原因
-  const [reasonText, setReasonText] = useState("");
-
-  const init = async () => {
-    try {
-      const response = await get("baseConfig", { param1: "value1" });
-      console.log("response", response);
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
-    }
-    // let arr = res.cancellationReasonVOList;
-    // arr.push({id: '-1', reason: '其他原因'});
-    // setReasons(arr);
-  };
+  const [state, dispatch] = React.useReducer(reducer, main);
 
   useEffect(() => {
-    init();
+    // 页面初始化
+    init(dispatch);
+    // 返回一个清理函数
+    return () => {
+      dispatch({
+        type: "clean",
+      });
+    };
   }, []);
+
+  return (
+    <Context.Provider value={{ state, dispatch }}>
+      <GoodsItem {...props} />
+    </Context.Provider>
+  );
+}
+
+ function GoodsItem(props) {
+   const { state,dispatch } = useContext(Context);
+   console.log('state',state);
   return (
     <div className="goods">
       <Header/>
-      <div className="commonImg"><img src={aboutTU} alt=""/></div>
-      goods
+      <div className="commonImg" onClick={()=>init(dispatch)}><img src={goodsTU} alt=""/></div>
+      <div onClick={()=>{
+        dispatch({
+          type: "clean",
+        });
+      }}>
+        goods
+      </div>
+      <Fitter />
       <Bottom/>
     </div>
   );
