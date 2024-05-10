@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
   .fitter-item{
     display: flex;
     align-items: center;
@@ -19,9 +20,82 @@
     span{
       margin-right: 8px;
     }
+    .arrow{
+      font-size: 24px;
+    }
+    &.fitter-item-selected{
+      color: #1677ff;
+      .arrow{
+        color: #1677ff;
+      }
+    }
   }
-  .arrow{
+}
+.fitter-modal-bg{
+  position: fixed;
+  background-color: transparent;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+.fitter-modal{
+  position: fixed;
+  top: 504px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 0 0 16px 16px;
+  z-index: 101;
+  .fitter-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 32px;
+  }
+  .fitter-btn-reset{
+    flex: 1;
+    height: 64px;
+    border-radius: 32px;
     font-size: 24px;
+    font-weight: 500;
+    color: #1677ff;
+    border: 2px solid #1677ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fitter-btn-submit{
+    flex: 1;
+    height: 64px;
+    border-radius: 32px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1677ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+  }
+}
+.fitter-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  .fitter-content-item{
+    width: 50%;
+    height: 64px;
+    display: block;
+    padding: 0 24px;
+    line-height: 64px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 

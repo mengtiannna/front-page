@@ -1,15 +1,15 @@
 import * as React from "react";
-import {Fragment, useContext, useEffect} from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import {Context} from "./context";
-import {main, reducer} from "./reducers/main.ts";
+import { Context } from "./context";
+import { main, reducer } from "./reducers/main.ts";
 import Header from "../common/header";
 import Bottom from "../common/bottom.tsx";
-import './index.less';
+import "./index.less";
 import goodsTU from "../assets/goods-tu.png";
 import Fitter from "./components/fitter.tsx";
-
+import FitterModal from "./components/fitter-modal.tsx";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -25,20 +25,20 @@ export default function Goods(props) {
     };
   }, []);
 
-  const init=()=>{
+  const init = () => {
     try {
       // const response = await get("baseConfig", { param1: "value1" });
       // console.log("response", response);
       dispatch({
         type: "set",
         payload: {
-          name: "123123123"
-        }
+          name: "123123123",
+        },
       });
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
-  }
+  };
 
   return (
     <Context.Provider value={{ state, dispatch }}>
@@ -47,14 +47,18 @@ export default function Goods(props) {
   );
 }
 
- function GoodsItem(props) {
-   const { state,dispatch } = useContext(Context);
+function GoodsItem(props) {
+  const { state, dispatch } = useContext(Context);
+  const { brandModal, goodsModal } = state;
   return (
     <div className="goods">
-      <Header/>
-      <div className="commonImg"><img src={goodsTU} alt=""/></div>
+      <Header />
+      <div className="commonImg">
+        <img src={goodsTU} alt="" />
+      </div>
       <Fitter />
-      <Bottom/>
+      {(brandModal || goodsModal) && <FitterModal />}
+      <Bottom />
     </div>
   );
 }

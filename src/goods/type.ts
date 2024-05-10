@@ -1,13 +1,15 @@
-import {Dispatch} from "react";
+import { Dispatch } from "react";
 
 // 定义AppState接口
 export interface AppState {
   loading: boolean;
   name: string;
-  brandModal: boolean,
-  showMoreBrand: boolean,
-  goodsModal: boolean,
-  showMoreGoods: boolean,
+  brandModal: boolean;
+  showMoreBrand: boolean;
+  goodsModal: boolean;
+  showMoreGoods: boolean;
+  productList: any[];
+  brandList: any[];
   // 添加其他你需要的属性
 }
 

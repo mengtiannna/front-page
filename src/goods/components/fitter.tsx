@@ -1,23 +1,53 @@
 import * as React from "react";
-import {Fragment, useContext, useEffect, useState} from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {Context} from "../context.ts";
-import { UpOutline, DownOutline } from 'antd-mobile-icons'
+import { Context } from "../context.ts";
+import { UpOutline, DownOutline } from "antd-mobile-icons";
 
 export default function Fitter(props) {
   const { state, dispatch } = useContext(Context);
-  console.log('fitter state',state);
+  const { brandModal, goodsModal } = state;
   return (
     <div className="fitter">
-      <div className="fitter-item">
+      <div
+        className={
+          brandModal ? "fitter-item fitter-item-selected" : "fitter-item"
+        }
+        onClick={() => {
+          dispatch({
+            type: "set",
+            payload: {
+              brandModal: !brandModal,
+            },
+          });
+        }}
+      >
         <span>品牌</span>
-        <UpOutline className="arrow"/>
-        <DownOutline className="arrow" />
+        {brandModal ? (
+          <UpOutline className="arrow" />
+        ) : (
+          <DownOutline className="arrow" />
+        )}
       </div>
-      <div className="fitter-item">
+      <div
+        className={
+          goodsModal ? "fitter-item fitter-item-selected" : "fitter-item"
+        }
+        onClick={() => {
+          dispatch({
+            type: "set",
+            payload: {
+              goodsModal: !goodsModal,
+            },
+          });
+        }}
+      >
         <span>产品</span>
-        <UpOutline className="arrow"/>
-        <DownOutline className="arrow" />
+        {goodsModal ? (
+          <UpOutline className="arrow" />
+        ) : (
+          <DownOutline className="arrow" />
+        )}
       </div>
     </div>
   );

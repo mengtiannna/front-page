@@ -34,6 +34,7 @@
     "postcss": "^8.4.38",
     "postcss-preset-env": "^9.5.9",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
+    "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
