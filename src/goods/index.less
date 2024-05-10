@@ -1,6 +1,28 @@
 .goods  {
   margin: 0 auto;
   line-height: 1;
+  background-color: #f5f5f5;
+}
+.fitter{
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .fitter-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    line-height: 1;
+    font-size: 28px;
+    span{
+      margin-right: 8px;
+    }
+  }
+  .arrow{
+    font-size: 24px;
+  }
 }
 
 
@@ -8,6 +30,6 @@
 /* 媒体查询：平板电脑和桌面 */
 @media (min-width: 768px) {
   .goods  {
-
+    background-color: #fff;
   }
 }

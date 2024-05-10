@@ -2,9 +2,8 @@ import * as React from "react";
 import {Fragment, useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 
-import {reducer, Context} from "./context";
-import {init} from "./actions";
-import {main} from "./reducers/main.ts";
+import {Context} from "./context";
+import {main, reducer} from "./reducers/main.ts";
 import Header from "../common/header";
 import Bottom from "../common/bottom.tsx";
 import './index.less';
@@ -17,7 +16,7 @@ export default function Goods(props) {
 
   useEffect(() => {
     // 页面初始化
-    init(dispatch);
+    init();
     // 返回一个清理函数
     return () => {
       dispatch({
@@ -25,6 +24,21 @@ export default function Goods(props) {
       });
     };
   }, []);
+
+  const init=()=>{
+    try {
+      // const response = await get("baseConfig", { param1: "value1" });
+      // console.log("response", response);
+      dispatch({
+        type: "set",
+        payload: {
+          name: "123123123"
+        }
+      });
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
+  }
 
   return (
     <Context.Provider value={{ state, dispatch }}>
@@ -35,18 +49,10 @@ export default function Goods(props) {
 
  function GoodsItem(props) {
    const { state,dispatch } = useContext(Context);
-   console.log('state',state);
   return (
     <div className="goods">
       <Header/>
-      <div className="commonImg" onClick={()=>init(dispatch)}><img src={goodsTU} alt=""/></div>
-      <div onClick={()=>{
-        dispatch({
-          type: "clean",
-        });
-      }}>
-        goods
-      </div>
+      <div className="commonImg"><img src={goodsTU} alt=""/></div>
       <Fitter />
       <Bottom/>
     </div>

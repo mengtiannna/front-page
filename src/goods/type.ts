@@ -4,6 +4,10 @@ import {Dispatch} from "react";
 export interface AppState {
   loading: boolean;
   name: string;
+  brandModal: boolean,
+  showMoreBrand: boolean,
+  goodsModal: boolean,
+  showMoreGoods: boolean,
   // 添加其他你需要的属性
 }
 
