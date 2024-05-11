@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "./context";
@@ -10,6 +10,7 @@ import "./index.less";
 import goodsTU from "../assets/goods-tu.png";
 import Fitter from "./components/fitter.tsx";
 import FitterModal from "./components/fitter-modal.tsx";
+import GoodsItem from "./components/goods-item.tsx";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -42,23 +43,45 @@ export default function Goods(props) {
 
   return (
     <Context.Provider value={{ state, dispatch }}>
-      <GoodsItem {...props} />
+      <GoodsContent {...props} />
     </Context.Provider>
   );
 }
 
-function GoodsItem(props) {
+function GoodsContent(props) {
   const { state, dispatch } = useContext(Context);
   const { brandModal, goodsModal } = state;
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    // init();
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    // 清理事件监听器
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // 空数组意味着这个 effect 只会在组件挂载时执行一次
+
   return (
     <div className="goods">
       <Header />
       <div className="commonImg">
         <img src={goodsTU} alt="" />
       </div>
-      <Fitter />
-      {(brandModal || goodsModal) && <FitterModal />}
+      <div></div>
+      {isMobile && <Fitter />}
+      {isMobile && <FitterModal />}
+      <GoodsItem />
       <Bottom />
+      <div className="aaaaaa"></div>
     </div>
   );
 }

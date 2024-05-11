@@ -10,6 +10,9 @@ export interface AppState {
   showMoreGoods: boolean;
   productList: any[];
   brandList: any[];
+  productIds: any[];
+  brandIds: any[];
+  goodsList: any[];
   // 添加其他你需要的属性
 }
 
