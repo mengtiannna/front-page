@@ -10,7 +10,8 @@ import "./index.less";
 import goodsTU from "../assets/goods-tu.png";
 import Fitter from "./components/fitter.tsx";
 import FitterModal from "./components/fitter-modal.tsx";
-import GoodsItem from "./components/goods-item.tsx";
+import GoodsList from "./components/goods-list.tsx";
+import FitterPC from "./components/fitter-pc.tsx";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -77,9 +78,9 @@ function GoodsContent(props) {
         <img src={goodsTU} alt="" />
       </div>
       <div></div>
-      {isMobile && <Fitter />}
+      {isMobile ? <Fitter /> : <FitterPC />}
       {isMobile && <FitterModal />}
-      <GoodsItem />
+      <GoodsList />
       <Bottom />
       <div className="aaaaaa"></div>
     </div>

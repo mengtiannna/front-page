@@ -3,7 +3,7 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context.ts";
 import { UpOutline, DownOutline } from "antd-mobile-icons";
-
+import "./fitter.less";
 export default function Fitter(props) {
   const { state, dispatch } = useContext(Context);
   const { brandModal, goodsModal } = state;

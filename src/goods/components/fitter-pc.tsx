@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import { Context } from "../context.ts";
 import { UpOutline, DownOutline } from "antd-mobile-icons";
 
-export default function GoodsItem(props) {
+export default function FitterPC(props) {
   const { state, dispatch } = useContext(Context);
-  const { goodsList } = state;
-  return <div className="goods-item"></div>;
+  const { brandModal, goodsModal } = state;
+  return (
+    <div className="fitter-pc">
+      <div>
+        <span>品牌</span>
+      </div>
+      <div>
+        <span>产品</span>
+      </div>
+    </div>
+  );
 }
