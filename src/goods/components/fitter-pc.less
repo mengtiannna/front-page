@@ -1,0 +1,106 @@
+
+// pc端的设计px单位的样式个性化 写在媒体查询里不会被插件自动转化为vw，必须统一走下面的媒体查询
+/* 媒体查询：平板电脑和桌面 */
+@media (min-width: 768px) {
+  .fitter-pc{
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  .fitter-pc-item{
+    border: 1px solid rgba(243, 243, 243, 1);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -1px;
+    .f-title{
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(243, 243, 243, 1);
+      width: 120px;
+      color: rgba(128, 128, 128, 1);
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  .brandList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 6px 0 6px 6px;
+    .brandItem{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 40px;
+      border: 1px solid #E5E5E5;
+      cursor: pointer;
+      margin-right: -1px;
+      margin-bottom: -1px;
+      >span{
+        display: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: #1F95E8;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      >img{
+        width: 110px;
+        height: 30px;
+        object-fit: contain;
+      }
+      &:hover{
+        position: relative;
+        z-index: 99;
+        border: 1px solid #1F95E8;
+        >span{
+          display: block;
+        }
+        >img{
+         display: none;
+        }
+      }
+    }
+  }
+  .productList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 6px 0 6px 6px;
+    .productItem{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 40px;
+      border: 1px solid #E5E5E5;
+      cursor: pointer;
+      margin-right: -1px;
+      margin-bottom: -1px;
+      >span{
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 400;
+        font-size: 14px;
+        color: #666;
+      }
+      &:hover{
+        position: relative;
+        z-index: 99;
+        background-color: #1F95E8;
+        border: 1px solid #1F95E8;
+        >span{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

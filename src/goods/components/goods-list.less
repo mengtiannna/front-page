@@ -4,9 +4,14 @@
 // pc端的设计px单位的样式个性化 写在媒体查询里不会被插件自动转化为vw，必须统一走下面的媒体查询
 /* 媒体查询：平板电脑和桌面 */
 @media (min-width: 768px) {
-  .goods-list  {
+  .goodsBox{
     width: 1280px;
     margin: 0 auto;
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  .goods-list  {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -20,11 +25,61 @@
     height: 240px;
     margin-right: 16px;
     margin-bottom: 16px;
+    cursor: pointer;
     &:nth-child(6n) {
       margin-right: 0;
     }
-    img{
+    .img{
+      width: 198px;
+      height: 158px;
+      object-fit: contain;
       display: block;
+    }
+    .goods-content{
+      padding: 16px;
+    }
+    .goodsName{
+      color: #333;
+      font-size: 14px;
+      line-height: 20px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .goodsNoBox{
+      margin-top: 4px;
+      font-size: 14px;
+      width: 100%;
+      display: flex;
+      .goodsNo{
+        line-height: 28px;
+        color: #999;
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .btn{
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
+        line-height: 28px;
+        font-size: 12px;
+        display: none;
+        width: 105px;
+        height: 28px;
+        background-color: rgba(31, 149, 232, 1);
+      }
+    }
+    &:hover{
+      border: 1px solid #1F95E8;
+      .goodsNoBox{
+        .btn{
+          display: block;
+        }
+      }
     }
   }
 }

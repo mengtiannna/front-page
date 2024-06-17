@@ -12,6 +12,7 @@ import Fitter from "./components/fitter.tsx";
 import FitterModal from "./components/fitter-modal.tsx";
 import GoodsList from "./components/goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
+import InquiryModal from "./components/inquiry-modal.tsx";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -81,8 +82,8 @@ function GoodsContent(props) {
       {isMobile ? <Fitter /> : <FitterPC />}
       {isMobile && <FitterModal />}
       <GoodsList />
+      <InquiryModal />
       <Bottom />
-      <div className="aaaaaa"></div>
     </div>
   );
 }

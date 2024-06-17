@@ -8,6 +8,8 @@ export interface AppState {
   showMoreBrand: boolean;
   goodsModal: boolean;
   showMoreGoods: boolean;
+  inquiryModal: boolean;
+  formData: {};
   productList: any[];
   brandList: any[];
   productIds: any[];
