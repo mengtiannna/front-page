@@ -52,7 +52,7 @@ export default function Goods(props) {
 
 function GoodsContent(props) {
   const { state, dispatch } = useContext(Context);
-  const { brandModal, goodsModal } = state;
+  const { brandModal, goodsModal, inquiryModal } = state;
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function GoodsContent(props) {
       {isMobile ? <Fitter /> : <FitterPC />}
       {isMobile && <FitterModal />}
       <GoodsList />
-      <InquiryModal />
+      {inquiryModal && <InquiryModal />}
       <Bottom />
     </div>
   );
