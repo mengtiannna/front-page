@@ -87,6 +87,9 @@ export const main: AppState = {
   ],
   productIds: [],
   brandIds: [],
+
+
+  
   goodsList: [
     {
       goodsId: "0",
