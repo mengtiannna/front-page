@@ -56,51 +56,7 @@ export const main: AppState = {
     {
       name: "Product I",
       id: 1009,
-    },
-    {
-      name: "Product J",
-      id: 1010,
-    },
-    {
-      name: "内蒙古自治区内蒙古自治区内蒙古自治区Product A",
-      id: 1001111,
-    },
-    {
-      name: "Product B",
-      id: 1001002,
-    },
-    {
-      name: "Product C",
-      id: 1001003,
-    },
-    {
-      name: "Product D",
-      id: 1001004,
-    },
-    {
-      name: "Product E",
-      id: 1001005,
-    },
-    {
-      name: "Product F",
-      id: 1001006,
-    },
-    {
-      name: "Product G",
-      id: 1001007,
-    },
-    {
-      name: "Product H",
-      id: 1001008,
-    },
-    {
-      name: "Product I",
-      id: 1001009,
-    },
-    {
-      name: "Product J",
-      id: 1011110,
-    },
+    }
   ],
   brandList: [
     {
@@ -127,42 +83,7 @@ export const main: AppState = {
       url: brandUrl,
       name: "上海贝岭",
       id: 1005,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1006,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1007,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1008,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1009,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1010,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1011,
-    },
-    {
-      url: brandUrl,
-      name: "上海贝岭",
-      id: 1012,
-    },
+    }
   ],
   productIds: [],
   brandIds: [],
@@ -274,79 +195,7 @@ export const main: AppState = {
       goodsImg: goodsImg,
       goodsName: "电解电容",
       goodsNo: "100417718282",
-    },
-    {
-      goodsId: "18",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "19",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "20",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718283",
-    },
-    {
-      goodsId: "21",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "22",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "23",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718283",
-    },
-    {
-      goodsId: "24",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "25",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "26",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "27",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
-    {
-      goodsId: "28",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718283",
-    },
-    {
-      goodsId: "29",
-      goodsImg: goodsImg,
-      goodsName: "电解电容",
-      goodsNo: "100417718282",
-    },
+    }
   ],
 };
 
