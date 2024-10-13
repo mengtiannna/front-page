@@ -20,6 +20,7 @@ export const main: AppState = {
     phone: "",
     email: "",
   },
+  total: 50,
   productList: [
     {
       name: "内蒙古自治区内蒙古自治区内蒙古自治区Product A",
@@ -87,9 +88,6 @@ export const main: AppState = {
   ],
   productIds: [],
   brandIds: [],
-
-
-  
   goodsList: [
     {
       goodsId: "0",

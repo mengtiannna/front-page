@@ -9,12 +9,14 @@ export interface AppState {
   goodsModal: boolean;
   showMoreGoods: boolean;
   inquiryModal: boolean;
+  total: number;
   formData: {};
   productList: any[];
   brandList: any[];
   productIds: any[];
   brandIds: any[];
   goodsList: any[];
+  [name: string]: any;
   // 添加其他你需要的属性
 }
 

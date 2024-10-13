@@ -8,10 +8,11 @@ import { Pagination, PaginationProps } from "antd";
 
 export default function GoodsList(props) {
   const { state, dispatch } = useContext(Context);
-  const { goodsList, formData } = state;
+  const { goodsList, formData, total } = state;
   const onChange: PaginationProps["onChange"] = (pageNumber) => {
     console.log("Page: ", pageNumber);
   };
+
   return (
     <div className="goodsBox">
       <div className="goods-list">
