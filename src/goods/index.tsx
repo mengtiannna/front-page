@@ -11,6 +11,7 @@ import goodsTU from "../assets/goods-tu.png";
 import Fitter from "./components/fitter.tsx";
 import FitterModal from "./components/fitter-modal.tsx";
 import GoodsList from "./components/goods-list.tsx";
+import H5GoodsList from "./components/h5-goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
 import InquiryModal from "./components/inquiry-modal.tsx";
 
@@ -81,7 +82,7 @@ function GoodsContent(props) {
       <div></div>
       {isMobile ? <Fitter /> : <FitterPC />}
       {isMobile && <FitterModal />}
-      <GoodsList />
+      {isMobile ? <H5GoodsList /> : <GoodsList />}
       {inquiryModal && <InquiryModal />}
       <Bottom />
     </div>

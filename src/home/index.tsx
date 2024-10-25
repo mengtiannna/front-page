@@ -16,7 +16,7 @@ export default function Home(props) {
   const [slidesToShow, setSlidesToShow] = useState(2);
   const init = async () => {
     try {
-      const response = await get("baseConfig", { param1: "value1" });
+      // const response = await get("baseConfig", { param1: "value1" });
       // console.log("response", response);
       // let arr = response?.xxx || [];
       // setData(arr)

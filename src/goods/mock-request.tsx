@@ -6,7 +6,7 @@ export async function mockRequest() {
   if (count >= 5) {
     return [];
   }
-  await sleep(500);
+  await sleep(200);
   count++;
   return [
     "A",

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const service = axios.create({
-  baseURL: 'https://xxx.xxx.xxx/supplierbff/', // API基础地址
+  baseURL: 'https://sbc-upgrade.kstore.shop/mbff/', // API基础地址
   timeout: 5000, // 请求超时时间
 });
 
@@ -11,7 +11,9 @@ service.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
     // 例如，如果有token，可以在这里统一设置
-    // config.headers['Authorization'] = 'Bearer ' + token;
+    const token = window.token;
+    config.headers['Authorization'] = 'Bearer ' + token ? token : '';
+    config.headers['terminal'] = 'H5';
     return config;
   },
   error => {
