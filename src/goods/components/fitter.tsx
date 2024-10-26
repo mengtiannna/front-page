@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { Context } from "../context.ts";
 import { UpOutline, DownOutline } from "antd-mobile-icons";
 import "./fitter.less";
+import FitterModal from "./fitter-modal";
 export default function Fitter(props) {
   const { state, dispatch } = useContext(Context);
-  const { brandModal, goodsModal } = state;
+  const { brandModal, goodsModal, isMobile } = state;
   return (
     <div className="fitter">
       <div
@@ -49,6 +50,7 @@ export default function Fitter(props) {
           <DownOutline className="arrow" />
         )}
       </div>
+      {isMobile && <FitterModal />}
     </div>
   );
 }

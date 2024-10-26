@@ -4,21 +4,33 @@
   flex-wrap: wrap;
   line-height: 1;
   text-align: left;
+  .adm-list-body{
+    background-color: #f5f5f5;
+  }
   .adm-list-body-inner,.adm-list-body{
     width: 100%;
   }
+  .content{
+    background-color: #fff;
+    width: 351px;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
   .goods-item  {
-    border: 1px solid #E5E5E5;
     width: 50%;
-    margin-bottom: 16px;
-    cursor: pointer;
+    padding-left: 16px;
+    padding-right: 8px;
     display: inline-block;
-    &:nth-child(6n) {
-      margin-right: 0;
+    margin-top: 16px;
+    cursor: pointer;
+    &:nth-child(2n) {
+      padding-left: 8px;
+      padding-right: 16px;
     }
     .img{
-      width: 198px;
-      height: 158px;
+      width: 351px;
+      height: 351px;
       object-fit: contain;
       display: block;
     }
@@ -27,20 +39,20 @@
     }
     .goodsName{
       color: #333;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 28px;
+      line-height: 40px;
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
     .goodsNoBox{
-      margin-top: 4px;
-      font-size: 14px;
+      margin-top: 8px;
+      font-size: 24px;
       width: 100%;
       display: flex;
       .goodsNo{
-        line-height: 28px;
+        line-height: 56px;
         color: #999;
         display: inline-block;
         width: 100%;
@@ -52,20 +64,13 @@
         color: #fff;
         font-weight: 500;
         text-align: center;
-        line-height: 28px;
-        font-size: 12px;
-        display: none;
-        width: 105px;
-        height: 28px;
+        line-height: 56px;
+        font-size: 24px;
+        display: block;
+        width: 210px;
+        height: 56px;
+        border-radius: 8px;
         background-color: rgba(31, 149, 232, 1);
-      }
-    }
-    &:hover{
-      border: 1px solid #1F95E8;
-      .goodsNoBox{
-        .btn{
-          display: block;
-        }
       }
     }
   }

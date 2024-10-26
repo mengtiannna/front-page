@@ -6,6 +6,7 @@ const brandUrl =
 export const main: AppState = {
   loading: false,
   name: "",
+  isMobile: true,
   brandModal: false,
   showMoreBrand: false,
   goodsModal: false,
@@ -20,6 +21,9 @@ export const main: AppState = {
     phone: "",
     email: "",
   },
+  pageNum: 0,
+  pageSize: 10,
+  hasMore: false,
   total: 50,
   productList: [
     {
@@ -86,8 +90,6 @@ export const main: AppState = {
       id: 1005,
     }
   ],
-  productIds: [],
-  brandIds: [],
   goodsList: [
     {
       goodsId: "0",
@@ -198,6 +200,11 @@ export const main: AppState = {
       goodsNo: "100417718282",
     }
   ],
+  productIds: [],
+  brandIds: [],
+  // H5商品列表搜索参数
+  searchProductIds:[],
+  searchBrandIds: []
 };
 
 export const reducer = (state: AppState, action: Action) => {

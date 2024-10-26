@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Fragment, useContext, useEffect, useState } from "react";
 import { Context } from "../context.ts";
-import { Form, Input, InputNumber, Modal } from "antd";
+import { Form, Input, InputNumber, Modal, message } from "antd";
+import {post} from "../../axios";
 
 interface Values {
   title?: string;
@@ -25,7 +26,7 @@ const phoneReg = /^1\d{10}$/;
 export default function InquiryModal(props) {
   const [form] = Form.useForm();
   const { state, dispatch } = useContext(Context);
-  const { formData, inquiryModal } = state;
+  const { formData, inquiryModal, isMobile } = state;
   // const { goodsId, goodsName, price, num, useName, phone, email } = formData;
 
   const handleCancel = () => {
@@ -48,15 +49,18 @@ export default function InquiryModal(props) {
 
   const onCreate = (values: Values) => {
     console.log("Received values of form: ", values);
-    // todo
-    // 这里调用接口保存数据
-    alert(JSON.stringify(values));
-    handleCancel();
+    const res: any = post("/xxxx", {...values});
+    if (res.code === "K000000") {
+      message.info('提交成功');
+      handleCancel();
+    } else {
+      message.info('操作失败');
+    }
   };
 
   return (
     <Modal
-      wrapClassName="inquiry-modal"
+      wrapClassName={isMobile ? "inquiry-modal-h5" : "inquiry-modal"}
       open={inquiryModal}
       title="在线询价"
       okText="立即询价"
@@ -64,6 +68,7 @@ export default function InquiryModal(props) {
       okButtonProps={{ autoFocus: true, htmlType: "submit" }}
       onCancel={() => handleCancel()}
       destroyOnClose
+      centered={isMobile}
       modalRender={(dom) => (
         <Form
           {...formItemLayout}
@@ -71,6 +76,7 @@ export default function InquiryModal(props) {
           initialValues={formData}
           onFinish={(values) => onCreate(values)}
           layout="horizontal"
+          size={isMobile ? 'small' : 'middle'}
           name="form_in_modal"
         >
           {dom}
@@ -87,7 +93,7 @@ export default function InquiryModal(props) {
         name="price"
         label="期望价格"
         rules={[
-          { required: true, type: "regexp", message: "请输入期望价格" },
+          { required: true, message: "请输入期望价格" },
           { pattern: priceReg, message: "请输入有效的价格" },
         ]}
       >

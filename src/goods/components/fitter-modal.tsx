@@ -15,7 +15,7 @@ export default function FitterModal(props) {
     productIds,
     brandIds,
   } = state;
-  console.log("state", state);
+  console.log("123123 state", state);
   return (
     <div
       className="fitter-modal-bg"
@@ -33,7 +33,7 @@ export default function FitterModal(props) {
       <div className="fitter-modal">
         <div className="fitter-content">
           {/*品牌*/}
-          {brandList.map((item) => {
+          {brandModal && brandList.map((item) => {
             return (
               <div
                 className={
@@ -116,9 +116,11 @@ export default function FitterModal(props) {
                 payload: goodsModal
                   ? {
                       productIds: [],
+                      searchProductIds: [],
                     }
                   : {
                       brandIds: [],
+                      searchBrandIds: [],
                     },
               });
             }}
@@ -135,6 +137,8 @@ export default function FitterModal(props) {
                 payload: {
                   goodsModal: false,
                   brandModal: false,
+                  searchProductIds: productIds,
+                  searchBrandIds: brandIds,
                 },
               });
             }}

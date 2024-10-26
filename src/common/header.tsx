@@ -74,15 +74,6 @@ export default function HeaderProvider(props) {
       <Link to="/">
         <img className="logo" src={logo} alt="logo" />
       </Link>
-      {/*<Son />*/}
-      {/*<div onClick={()=>{*/}
-      {/*  dispatch({*/}
-      {/*    type: "set",*/}
-      {/*    payload: {*/}
-      {/*      name: "123123123"*/}
-      {/*    }*/}
-      {/*  })*/}
-      {/*}}>{state.name}</div>*/}
       <Tabs
         activeKey={activeKey}
         onTabClick={(key, event) => {
@@ -106,18 +97,5 @@ export default function HeaderProvider(props) {
       />
     </div>
   );
-}
-
-const Son = (props) => {
-  const { state, dispatch } = useContext(HeaderContext);
-  // console.log('state',state);
-  return <div onClick={()=>{
-    dispatch({
-      type: "set",
-      payload: {
-        name: "123123123"
-      }
-    })
-  }}>click</div>
 }
 

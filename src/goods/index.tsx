@@ -14,6 +14,7 @@ import GoodsList from "./components/goods-list.tsx";
 import H5GoodsList from "./components/h5-goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
 import InquiryModal from "./components/inquiry-modal.tsx";
+// import {post} from "../axios";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -53,17 +54,16 @@ export default function Goods(props) {
 
 function GoodsContent(props) {
   const { state, dispatch } = useContext(Context);
-  const { brandModal, goodsModal, inquiryModal } = state;
-  const [isMobile, setIsMobile] = useState(true);
+  const { inquiryModal, isMobile } = state;
 
   useEffect(() => {
-    // init();
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
+      dispatch({
+        type: "set",
+        payload: {
+          isMobile: window.innerWidth < 768 ? true : false,
+        },
+      });
     };
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -81,7 +81,6 @@ function GoodsContent(props) {
       </div>
       <div></div>
       {isMobile ? <Fitter /> : <FitterPC />}
-      {isMobile && <FitterModal />}
       {isMobile ? <H5GoodsList /> : <GoodsList />}
       {inquiryModal && <InquiryModal />}
       <Bottom />

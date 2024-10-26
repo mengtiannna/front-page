@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
+  position: sticky;
+  top: 124px;
   .fitter-item{
     display: flex;
     align-items: center;
@@ -27,7 +28,7 @@
   }
 }
 .fitter-modal-bg{
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   width: 100vw;
   height: 100vh;
@@ -36,8 +37,8 @@
   left: 0;
 }
 .fitter-modal{
-  position: fixed;
-  top: 504px;
+  position: absolute;
+  top: 80px;
   left: 0;
   right: 0;
   width: 100%;
