@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Fragment, useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "./context";
@@ -9,7 +9,6 @@ import Bottom from "../common/bottom.tsx";
 import "./index.less";
 import goodsTU from "../assets/goods-tu.png";
 import Fitter from "./components/fitter.tsx";
-import FitterModal from "./components/fitter-modal.tsx";
 import GoodsList from "./components/goods-list.tsx";
 import H5GoodsList from "./components/h5-goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
