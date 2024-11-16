@@ -7,19 +7,22 @@ export const main: AppState = {
   loading: false,
   name: "",
   isMobile: true,
+  platform: '',
   brandModal: false,
   showMoreBrand: false,
   goodsModal: false,
   showMoreGoods: false,
   inquiryModal: false,
   formData: {
-    goodsId: "",
-    goodsName: "",
-    price: "",
-    num: "",
-    useName: "",
-    phone: "",
     email: "",
+    id: 0,
+    mobile: "",
+    price: "",
+    productId: 0,
+    productName: "",
+    productNumber: "",
+    realName: "",
+    remark: "",
   },
   pageNum: 0,
   pageSize: 10,
@@ -61,7 +64,7 @@ export const main: AppState = {
     {
       name: "Product I",
       id: 1009,
-    }
+    },
   ],
   brandList: [
     {
@@ -88,7 +91,7 @@ export const main: AppState = {
       url: brandUrl,
       name: "上海贝岭",
       id: 1005,
-    }
+    },
   ],
   goodsList: [
     {
@@ -198,13 +201,13 @@ export const main: AppState = {
       goodsImg: goodsImg,
       goodsName: "电解电容",
       goodsNo: "100417718282",
-    }
+    },
   ],
   productIds: [],
   brandIds: [],
   // H5商品列表搜索参数
-  searchProductIds:[],
-  searchBrandIds: []
+  searchProductIds: [],
+  searchBrandIds: [],
 };
 
 export const reducer = (state: AppState, action: Action) => {

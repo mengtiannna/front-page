@@ -14,6 +14,7 @@ import "./index.less";
 export default function Home(props) {
   const navigate = useNavigate();
   const [slidesToShow, setSlidesToShow] = useState(2);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const init = async () => {
     try {
       // const response = await get("baseConfig", { param1: "value1" });
@@ -30,8 +31,10 @@ export default function Home(props) {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setSlidesToShow(2);
+        setIsMobile(true)
       } else {
         setSlidesToShow(4);
+        setIsMobile(false)
       }
     };
     window.addEventListener("resize", handleResize);
@@ -100,7 +103,7 @@ export default function Home(props) {
           rootClassName="slide-brand"
           arrows={slidesToShow !== 2}
           infinite={true}
-          autoplay={false}
+          autoplay={true}
           dots={false}
           slidesToShow={slidesToShow}
           slidesToScroll={1}

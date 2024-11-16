@@ -33,12 +33,12 @@ export default function Goods(props) {
     try {
       // const response = await get("baseConfig", { param1: "value1" });
       // console.log("response", response);
-      dispatch({
-        type: "set",
-        payload: {
-          name: "123123123",
-        },
-      });
+      // dispatch({
+      //   type: "set",
+      //   payload: {
+      //     name: "123123123",
+      //   },
+      // });
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
@@ -53,14 +53,27 @@ export default function Goods(props) {
 
 function GoodsContent(props) {
   const { state, dispatch } = useContext(Context);
-  const { inquiryModal, isMobile } = state;
+  const { inquiryModal, isMobile, platform } = state;
 
   useEffect(() => {
     const handleResize = () => {
+      let platform = '';
+      if(window.innerWidth < 768){
+        platform = 'mobile'
+      }
+      if(window.innerWidth >= 768){
+        platform = 'pc'
+      }
       dispatch({
         type: "set",
         payload: {
           isMobile: window.innerWidth < 768 ? true : false,
+        },
+      });
+      dispatch({
+        type: "set",
+        payload: {
+          platform,
         },
       });
     };
@@ -80,7 +93,8 @@ function GoodsContent(props) {
       </div>
       <div></div>
       {isMobile ? <Fitter /> : <FitterPC />}
-      {isMobile ? <H5GoodsList /> : <GoodsList />}
+      {platform === 'mobile' && <H5GoodsList />}
+      {platform === 'pc' && <GoodsList />}
       {inquiryModal && <InquiryModal />}
       <Bottom />
     </div>

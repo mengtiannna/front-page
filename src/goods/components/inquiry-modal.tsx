@@ -2,7 +2,7 @@ import * as React from "react";
 import { Fragment, useContext, useEffect, useState } from "react";
 import { Context } from "../context.ts";
 import { Form, Input, InputNumber, Modal, message } from "antd";
-import {post} from "../../axios";
+import { post } from "../../axios";
 
 interface Values {
   title?: string;
@@ -27,8 +27,18 @@ export default function InquiryModal(props) {
   const [form] = Form.useForm();
   const { state, dispatch } = useContext(Context);
   const { formData, inquiryModal, isMobile } = state;
-  // const { goodsId, goodsName, price, num, useName, phone, email } = formData;
-
+  const {
+    email,
+    id,
+    mobile,
+    price,
+    productId,
+    productName,
+    productNumber,
+    realName,
+    remark,
+  } = formData;
+  console.log("123 formData", formData);
   const handleCancel = () => {
     dispatch({
       type: "set",
@@ -47,14 +57,14 @@ export default function InquiryModal(props) {
     });
   };
 
-  const onCreate = (values: Values) => {
+  const onCreate = async (values: Values) => {
     console.log("Received values of form: ", values);
-    const res: any = post("/xxxx", {...values});
-    if (res.code === "K000000") {
-      message.info('提交成功');
+    const res: any = await post("/public/saleInvoice/add", { ...values });
+    if (res.code === 200) {
+      message.info("提交成功");
       handleCancel();
     } else {
-      message.info('操作失败');
+      message.info("操作失败");
     }
   };
 
@@ -76,17 +86,20 @@ export default function InquiryModal(props) {
           initialValues={formData}
           onFinish={(values) => onCreate(values)}
           layout="horizontal"
-          size={isMobile ? 'small' : 'middle'}
+          size={isMobile ? "small" : "middle"}
           name="form_in_modal"
         >
           {dom}
         </Form>
       )}
     >
-      <Form.Item name="goodsId" label="产品id" style={{ display: "none" }}>
+      <Form.Item name="productId" label="产品id" style={{ display: "none" }} initialValue={productId}>
         <Input disabled={true} />
       </Form.Item>
-      <Form.Item name="goodsName" label="产品名称">
+      <Form.Item name="id" label="id" style={{ display: "none" }} initialValue={id}>
+        <Input disabled={true} />
+      </Form.Item>
+      <Form.Item name="productName" label="产品名称" initialValue={productName}>
         <Input disabled={true} />
       </Form.Item>
       <Form.Item
@@ -100,7 +113,7 @@ export default function InquiryModal(props) {
         <Input />
       </Form.Item>
       <Form.Item
-        name="num"
+        name="productNumber"
         label="预定数量"
         rules={[
           {
@@ -115,14 +128,14 @@ export default function InquiryModal(props) {
         <InputNumber />
       </Form.Item>
       <Form.Item
-        name="userName"
+        name="realName"
         label="您的姓名"
         rules={[{ required: true, message: "请输入您的您的姓名" }]}
       >
         <Input />
       </Form.Item>
       <Form.Item
-        name="phone"
+        name="mobile"
         label="您的手机"
         rules={[
           { required: true, message: "请输入您的手机号码" },

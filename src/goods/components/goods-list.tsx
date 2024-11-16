@@ -5,22 +5,53 @@ import { Context } from "../context.ts";
 import { UpOutline, DownOutline } from "antd-mobile-icons";
 import "./goods-list.less";
 import { Pagination, PaginationProps } from "antd";
+import {get} from "../../axios";
 
 export default function GoodsList(props) {
   const { state, dispatch } = useContext(Context);
-  const { goodsList, formData, total } = state;
-  const onChange: PaginationProps["onChange"] = (pageNumber) => {
-    console.log("Page: ", pageNumber);
+  const { goodsList, formData, searchProductIds,searchBrandIds } = state;
+
+  const [data, setData] = useState<any[]>([]);
+  const [pageNum, setPageNum] = useState(1); // 初始页码从1开始
+  const [total, setTotal] = useState(0); // 初始页码从1开始
+  const reSearch = async({pageNum, pageSize})=>{
+    const res: any =  await get("/public/product/list", {
+      pageNum,
+      pageSize,
+      productIds: searchProductIds,
+      brandIds: searchBrandIds
+    });
+    console.log(123,'reSearch pc', res);
+    if (res.code === 200) {
+      const list = res.rows;
+      const totalPages = Math.ceil(res.total / 10);
+
+      // 拼接数据
+      setData(list);
+      // 更新页码
+      setPageNum(1);
+      setTotal(res.total);
+    }
+  }
+  // 确定选择品牌和产品触发商品重新搜索
+  useEffect(() => {
+    // if(searchProductIds.length > 0 || searchBrandIds.length > 0){
+    // }
+    reSearch({pageNum: 1, pageSize: 10});
+  }, [searchProductIds,searchBrandIds]);
+  const onChange: PaginationProps["onChange"] = (pageNum, pageSize) => {
+    console.log("Page: ", pageNum, pageSize);
+    reSearch({pageNum, pageSize});
   };
 
   return (
     <div className="goodsBox">
       <div className="goods-list">
-        {goodsList.map((item) => {
+        {data.map((item) => {
           return (
             <div
               className="goods-item"
-              key={item.goodsId}
+              key={item.id}
               onClick={() => {
                 dispatch({
                   type: "set",
@@ -28,18 +59,19 @@ export default function GoodsList(props) {
                     inquiryModal: true,
                     formData: {
                       ...formData,
-                      goodsId: item.goodsId,
-                      goodsName: item.goodsName,
+                      productId: item.id,
+                      id: item.id,
+                      productName: item.name
                     },
                   },
                 });
               }}
             >
-              <img className="img" src={item.goodsImg} alt="" />
+              <img className="img" src={item.image} alt="" />
               <div className="goods-content">
-                <div className="goodsName">{item.goodsName}</div>
+                <div className="goodsName">{item.name}</div>
                 <div className="goodsNoBox">
-                  <span className="goodsNo">型号：{item.goodsNo}</span>
+                  <span className="goodsNo">型号：{item.type}</span>
                   <div className="btn">立即询价</div>
                 </div>
               </div>
@@ -48,9 +80,9 @@ export default function GoodsList(props) {
         })}
       </div>
       <Pagination
-        showQuickJumper
-        defaultCurrent={1}
-        total={500}
+        showQuickJumper={false}
+        defaultCurrent={pageNum}
+        // total={total}
         onChange={onChange}
       />
     </div>
