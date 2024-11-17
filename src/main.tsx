@@ -16,6 +16,7 @@ import './index.less';
 import Home from './home'
 import Goods from './goods'
 import About from './about'
+import Demo from './demo'
 
 dayjs.locale('zh-cn');
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/goods" element={<Goods />} />
           <Route path="/about" element={<About />} />
+          <Route path="/demo" element={<Demo />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
