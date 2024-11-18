@@ -1,20 +1,12 @@
 import * as React from "react";
-import { Fragment, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Fragment, useContext } from "react";
 import { Context } from "../context.ts";
 import { CheckOutlined } from "@ant-design/icons";
-// import { CheckOutline } from "antd-mobile-icons";
 
 export default function FitterModal(props) {
   const { state, dispatch } = useContext(Context);
-  const {
-    brandModal,
-    goodsModal,
-    productList,
-    brandList,
-    productIds,
-    brandIds,
-  } = state;
+  const { brandModal, goodsModal, productList, brandList, product, brand } =
+    state;
   console.log("123123 state", state);
   return (
     <div
@@ -33,74 +25,76 @@ export default function FitterModal(props) {
       <div className="fitter-modal">
         <div className="fitter-content">
           {/*品牌*/}
-          {brandModal && brandList.map((item) => {
-            return (
-              <div
-                className={
-                  brandIds.includes(item.id)
-                    ? "fitter-content-item fitter-content-brand fitter-content-item-checked"
-                    : "fitter-content-item fitter-content-brand"
-                }
-                key={item.id}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (brandIds.includes(item.id)) {
-                    dispatch({
-                      type: "set",
-                      payload: {
-                        brandIds: brandIds.filter((ids) => ids !== item.id),
-                      },
-                    });
-                  } else {
-                    dispatch({
-                      type: "set",
-                      payload: {
-                        brandIds: brandIds.concat([item.id]),
-                      },
-                    });
-                  }
-                }}
-              >
-                <img src={item.url} alt="" />
-              </div>
-            );
-          })}
-          {/*产品*/}
-          {goodsModal &&
-            productList.map((item) => {
+          {brandModal &&
+            brandList.map((item) => {
               return (
                 <div
                   className={
-                    productIds.includes(item.id)
-                      ? "fitter-content-item fitter-content-item-checked"
-                      : "fitter-content-item"
+                    brand === item.dictValue
+                      ? "fitter-content-item fitter-content-brand fitter-content-item-checked"
+                      : "fitter-content-item fitter-content-brand"
                   }
-                  key={item.id}
+                  key={item.dictValue}
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (productIds.includes(item.id)) {
+                    if (brand === item.dictValue) {
                       dispatch({
                         type: "set",
                         payload: {
-                          productIds: productIds.filter(
-                            (ids) => ids !== item.id,
-                          ),
+                          brand: "",
                         },
                       });
                     } else {
                       dispatch({
                         type: "set",
                         payload: {
-                          productIds: productIds.concat([item.id]),
+                          brand: item.dictValue,
                         },
                       });
                     }
                   }}
                 >
-                  {productIds.includes(item.id) && (
+                  {brand === item.dictValue && (
                     <CheckOutlined className="checked-icon" />
                   )}
-                  {item.name}
+                  {item.dictLabel}
+                </div>
+              );
+            })}
+          {/*产品*/}
+          {goodsModal &&
+            productList.map((item) => {
+              return (
+                <div
+                  className={
+                    product === item.dictValue
+                      ? "fitter-content-item fitter-content-item-checked"
+                      : "fitter-content-item"
+                  }
+                  key={item.id}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (product === item.dictValue) {
+                      dispatch({
+                        type: "set",
+                        payload: {
+                          product: "",
+                        },
+                      });
+                    } else {
+                      dispatch({
+                        type: "set",
+                        payload: {
+                          product: item.dictValue,
+                        },
+                      });
+                    }
+                  }}
+                >
+                  {product === item.dictValue && (
+                    <CheckOutlined className="checked-icon" />
+                  )}
+                  {item.dictLabel}
                 </div>
               );
             })}
@@ -115,12 +109,16 @@ export default function FitterModal(props) {
                 type: "set",
                 payload: goodsModal
                   ? {
-                      productIds: [],
-                      searchProductIds: [],
+                      product: "",
+                      searchProduct: "",
+                      goodsModal: false,
+                      brandModal: false,
                     }
                   : {
-                      brandIds: [],
-                      searchBrandIds: [],
+                      brand: "",
+                      searchBrand: "",
+                      goodsModal: false,
+                      brandModal: false,
                     },
               });
             }}
@@ -137,8 +135,8 @@ export default function FitterModal(props) {
                 payload: {
                   goodsModal: false,
                   brandModal: false,
-                  searchProductIds: productIds,
-                  searchBrandIds: brandIds,
+                  searchProduct: product,
+                  searchBrand: brand,
                 },
               });
             }}

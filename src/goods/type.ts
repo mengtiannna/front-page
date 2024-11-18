@@ -13,8 +13,10 @@ export interface AppState {
   formData: any;
   productList: any[];
   brandList: any[];
-  productIds: any[];
-  brandIds: any[];
+  product: string;
+  brand: string;
+  searchProduct: string;
+  searchBrand: string;
   goodsList: any[];
   [name: string]: any;
   // 添加其他你需要的属性

@@ -13,7 +13,7 @@ import GoodsList from "./components/goods-list.tsx";
 import H5GoodsList from "./components/h5-goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
 import InquiryModal from "./components/inquiry-modal.tsx";
-// import {post} from "../axios";
+import {get} from "../axios";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -29,16 +29,20 @@ export default function Goods(props) {
     };
   }, []);
 
-  const init = () => {
+  const init = async() => {
     try {
-      // const response = await get("baseConfig", { param1: "value1" });
-      // console.log("response", response);
-      // dispatch({
-      //   type: "set",
-      //   payload: {
-      //     name: "123123123",
-      //   },
-      // });
+      const response = await get("/public/type/brand",{});
+      const res = await get("/public/type/product_category",{});
+
+      // const response = await get("/public/type/owb",{});
+      // const res = await get("/public/type/owc",{});
+      dispatch({
+        type: "set",
+        payload: {
+          brandList: response.data,
+          productList: res.data,
+        },
+      });
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
