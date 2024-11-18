@@ -1,8 +1,14 @@
 import * as React from "react";
 import { Tabs } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, createContext, useContext, Dispatch } from "react";
-import logo from "../assets/logo.png";
+import {
+  useEffect,
+  useState,
+  createContext,
+  useContext,
+  Dispatch,
+} from "react";
+import logo from "../assets/logo.jpg";
 import "./header.less";
 
 // 定义AppState接口
@@ -36,15 +42,12 @@ const reducer = (state: AppState, action: Action) => {
   }
 };
 
-
 export default function HeaderProvider(props) {
   const [state, dispatch] = React.useReducer(reducer, {
     name: "default",
   });
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <HeaderContext.Provider value={{ state, dispatch }}>
@@ -53,7 +56,7 @@ export default function HeaderProvider(props) {
   );
 }
 
- function Header(props) {
+function Header(props) {
   const { state, dispatch } = useContext(HeaderContext);
   // console.log(123123123,state)
   let navigate = useNavigate();
@@ -98,4 +101,3 @@ export default function HeaderProvider(props) {
     </div>
   );
 }
-

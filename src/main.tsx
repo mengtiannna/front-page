@@ -1,38 +1,33 @@
 import * as React from "react";
-import {
-  BrowserRouter,
-  Link,
-  Route,
-  Routes,
-} from "react-router-dom";
-import { createRoot } from 'react-dom/client';
-import { ConfigProvider } from 'antd';
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { createRoot } from "react-dom/client";
+import { ConfigProvider } from "antd";
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
-import 'dayjs/locale/zh-cn';
-import zhCN from 'antd/locale/zh_CN';
-import './index.less';
-import Home from './home'
-import Goods from './goods'
-import About from './about'
-import Demo from './demo'
+import "dayjs/locale/zh-cn";
+import zhCN from "antd/locale/zh_CN";
+import "./index.less";
+import Home from "./home";
+import Goods from "./goods";
+import About from "./about";
+import Demo from "./demo";
 
-dayjs.locale('zh-cn');
+dayjs.locale("zh-cn");
 
 const App = () => {
   return (
     <ConfigProvider locale={zhCN}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/goods" element={<Goods />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/demo" element={<Demo />} />
+          <Route key="home" path="/" element={<Home />} />
+          <Route key="goods" path="/goods" element={<Goods />} />
+          <Route key="about" path="/about" element={<About />} />
+          {/*<Route path="/demo" element={<Demo />} />*/}
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
   );
 };
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById("root")).render(<App />);
