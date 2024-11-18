@@ -1,28 +1,10 @@
-//.progress-circle {
-//  .progress-inner{
-//    position: absolute;
-//    width: 100px;
-//    height: 100px;
-//    left: 50%;
-//    top: 50%;
-//    background-color: #fff;
-//    border-radius: 50%;
-//    transform: translate(-50%,-50%);
-//  }
-//  position: relative;
-//  width: 150px;
-//  height: 150px;
-//  border-radius: 50%;
-//  background: conic-gradient(
-//          #4caf50 0%,
-//          #4caf50 calc(var(--progress, 0) * 1%),
-//          #e0e0e0 calc(var(--progress, 0) * 1%),
-//          #e0e0e0 100%
-//  );
-//  transition: background var(--duration, 2s) ease-out;
-//}
-
-  .progress-inner{
+/* ProgressCircle.css */
+.progress-container {
+  margin: 40px auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  .progress-inner {
     position: absolute;
     width: 220px;
     height: 220px;
@@ -30,17 +12,8 @@
     top: 50%;
     background-color: #fff;
     border-radius: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
-
-
-/* ProgressCircle.css */
-.progress-container {
-  margin-top: 200px;
-  margin-left: 120px;
-  position: relative;
-  width: 300px;
-  height: 300px;
 }
 
 .progress-circle {
@@ -48,22 +21,22 @@
   height: 100%;
   border-radius: 50%;
   background: conic-gradient(
-          #4caf50 0%,
-          #4caf50 calc(var(--progress) * 1%),
-          #e0e0e0 calc(var(--progress) * 1%),
-          #e0e0e0 100%
+    #4caf50 0%,
+    #000 calc(var(--progress) * 1%),
+    #e0e0e0 calc(var(--progress) * 1%),
+    #e0e0e0 100%
   );
   transition: background 0.2s linear;
 }
 
 .moving-icon {
-  background-color: #fff;
+  background-color: #000;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
   width: 40px; /* 圆形图片的大小 */
   height: 40px;
   border-radius: 50%; /* 圆形 */
-  transform-origin: center -75px; /* 设置旋转中心，半径稍大贴近圆外边 */
+  transform-origin: center center; /* 设置旋转中心，半径稍大贴近圆外边 */
   transform: translate(-50%, -50%); /* 初始居中 */
 }

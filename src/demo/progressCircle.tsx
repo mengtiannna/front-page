@@ -53,7 +53,7 @@ const ProgressCircle = ({ targetProgress = 150, duration = 3, imgSrc }) => {
         alt="Moving Icon"
         className="moving-icon"
         style={{
-          transform: `rotate(${iconRotation(progress)}deg) translate(75px) rotate(${-(iconRotation(progress))}deg)`,
+          transform: `rotate(${iconRotation(progress)}deg) translate(65px) rotate(${-iconRotation(progress)}deg)`,
         }}
       />
     </div>

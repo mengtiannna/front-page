@@ -3,10 +3,9 @@ import ProgressCircle from "./progressCircle";
 import reactPng from "../assets/react.svg";
 
 const App = () => {
-
   return (
     <div>
-      <ProgressCircle targetProgress={150} duration={1.5} imgSrc={reactPng} />
+      <ProgressCircle targetProgress={160} duration={4} imgSrc={reactPng} />
     </div>
   );
 };
