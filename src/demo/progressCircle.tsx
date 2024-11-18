@@ -44,6 +44,7 @@ const ProgressCircle = ({ targetProgress = 150, duration = 3, imgSrc }) => {
       <div
         className="progress-circle"
         style={{
+          // @ts-ignore
           "--progress": Math.min(progress, 100), // 进度条只处理 0-100 范围
         }}
       ></div>
