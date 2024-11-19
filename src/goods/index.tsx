@@ -31,11 +31,11 @@ export default function Goods(props) {
 
   const init = async() => {
     try {
-      const response = await get("/public/type/brand",{});
-      const res = await get("/public/type/product_category",{});
+      // const response = await get("/public/type/brand",{});
+      // const res = await get("/public/type/product_category",{});
 
-      // const response = await get("/public/type/owb",{});
-      // const res = await get("/public/type/owc",{});
+      const response = await get("/public/type/owb",{});
+      const res = await get("/public/type/owc",{});
       dispatch({
         type: "set",
         payload: {
