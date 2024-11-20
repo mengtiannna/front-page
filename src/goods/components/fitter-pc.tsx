@@ -11,12 +11,16 @@ export default function FitterPC(props) {
   return (
     <div className="fitter-pc">
       <div className="fitter-pc-item">
-        <span className="f-title">品牌：</span>
+        <span className="f-title">产品品牌：</span>
         <div className="productList" key="brandList">
           {brandList.map((item) => {
             return (
               <div
-                className={brand === item.dictValue ? "productItem checked" : "productItem"}
+                className={
+                  brand === item.dictValue
+                    ? "productItem checked"
+                    : "productItem"
+                }
                 key={item.dictValue}
                 onClick={() => {
                   if (brand === item.dictValue) {
@@ -45,12 +49,16 @@ export default function FitterPC(props) {
         </div>
       </div>
       <div className="fitter-pc-item">
-        <span className="f-title">产品：</span>
+        <span className="f-title">产品分类：</span>
         <div className="productList" key="productList">
           {productList.map((item) => {
             return (
               <div
-                className={product === item.dictValue ? "productItem checked" : "productItem"}
+                className={
+                  product === item.dictValue
+                    ? "productItem checked"
+                    : "productItem"
+                }
                 key={item.dictValue}
                 onClick={() => {
                   if (product === item.dictValue) {
