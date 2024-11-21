@@ -13,7 +13,7 @@ import GoodsList from "./components/goods-list.tsx";
 import H5GoodsList from "./components/h5-goods-list.tsx";
 import FitterPC from "./components/fitter-pc.tsx";
 import InquiryModal from "./components/inquiry-modal.tsx";
-import {get} from "../axios";
+import { get } from "../axios";
 
 export default function Goods(props) {
   const [state, dispatch] = React.useReducer(reducer, main);
@@ -29,13 +29,13 @@ export default function Goods(props) {
     };
   }, []);
 
-  const init = async() => {
+  const init = async () => {
     try {
-      const response = await get("/public/type/brand",{});
-      const res = await get("/public/type/product_category",{});
+      // const response = await get("/public/type/brand",{});
+      // const res = await get("/public/type/product_category",{});
 
-      // const response = await get("/public/type/owb",{});
-      // const res = await get("/public/type/owc",{});
+      const response = await get("/public/type/owb", {});
+      const res = await get("/public/type/owc", {});
       dispatch({
         type: "set",
         payload: {
@@ -61,12 +61,12 @@ function GoodsContent(props) {
 
   useEffect(() => {
     const handleResize = () => {
-      let platform = '';
-      if(window.innerWidth < 768){
-        platform = 'mobile'
+      let platform = "";
+      if (window.innerWidth < 768) {
+        platform = "mobile";
       }
-      if(window.innerWidth >= 768){
-        platform = 'pc'
+      if (window.innerWidth >= 768) {
+        platform = "pc";
       }
       dispatch({
         type: "set",
@@ -97,8 +97,8 @@ function GoodsContent(props) {
       </div>
       <div></div>
       {isMobile ? <Fitter /> : <FitterPC />}
-      {platform === 'mobile' && <H5GoodsList />}
-      {platform === 'pc' && <GoodsList />}
+      {platform === "mobile" && <H5GoodsList />}
+      {platform === "pc" && <GoodsList />}
       {inquiryModal && <InquiryModal />}
       <Bottom />
     </div>
