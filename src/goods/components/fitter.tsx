@@ -23,7 +23,7 @@ export default function Fitter(props) {
           });
         }}
       >
-        <span>品牌</span>
+        <span>产品品牌</span>
         {brandModal ? (
           <UpOutline className="arrow" />
         ) : (
@@ -43,7 +43,7 @@ export default function Fitter(props) {
           });
         }}
       >
-        <span>产品</span>
+        <span>产品分类</span>
         {goodsModal ? (
           <UpOutline className="arrow" />
         ) : (

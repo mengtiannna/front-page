@@ -70,7 +70,7 @@ export default function GoodsList(props) {
                   <div className="goods-content">
                     <div className="goodsName">{item.name}</div>
                     <div className="goodsNoBox">
-                      <span className="goodsNo">型号：{item.type}</span>
+                      <span className="goodsNo">型号：{item.model}</span>
                       <div className="btn">立即询价</div>
                     </div>
                   </div>
@@ -86,7 +86,11 @@ export default function GoodsList(props) {
           />
         </Fragment>
       ) : (
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='没有搜索到商品哦！' imageStyle={{ height: 60 }}/>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="没有搜索到商品哦！"
+          imageStyle={{ height: 60 }}
+        />
       )}
     </div>
   );
