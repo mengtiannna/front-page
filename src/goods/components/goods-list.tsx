@@ -19,6 +19,8 @@ export default function GoodsList(props) {
       pageSize,
       type: searchProduct,
       brand: searchBrand,
+      orderByColumn: "pSort",
+      isAsc: "ascending",
     });
     console.log(123, "reSearch pc", res);
     if (res.code === 200) {

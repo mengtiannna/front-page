@@ -19,6 +19,8 @@ export default () => {
       pageSize,
       type: searchProduct,
       brand: searchBrand,
+      orderByColumn: "pSort",
+      isAsc: "ascending",
     });
     console.log(123, "reSearch", isReset, res);
     if (res.code === 200) {
