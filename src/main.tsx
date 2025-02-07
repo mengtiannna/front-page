@@ -17,7 +17,12 @@ import "./index.less";
 import Home from "./home";
 import Goods from "./goods";
 import About from "./about";
-import Demo from "./demo";
+
+// demo
+import Progress from "./progress";
+import Waterfall1 from "./waterfall/demo1";
+import Waterfall2 from "./waterfall/demo2";
+import Waterfall3 from "./waterfall/demo3";
 
 dayjs.locale("zh-cn");
 
@@ -40,7 +45,14 @@ const App = () => {
           <Route key="home" path="/" element={<Home />} />
           <Route key="goods" path="/goods" element={<Goods />} />
           <Route key="about" path="/about" element={<About />} />
-          {/*<Route path="/demo" element={<Demo />} />*/}
+
+          {/*demo*/}
+          {/*瀑布流* 圆环滚动示例*/}
+          <Route path="/progress" element={<Progress />} />
+          {/*瀑布流* demo*/}
+          <Route path="/waterfall/demo1" element={<Waterfall1 />} />
+          <Route path="/waterfall/demo2" element={<Waterfall2 />} />
+          <Route path="/waterfall/demo3" element={<Waterfall3 />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
