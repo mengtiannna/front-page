@@ -31,7 +31,17 @@ export default function Bottom(props) {
         <div className="txt">上海闰芯科技有限公司</div>
         <div className="txt">工作时间：09:00-18:00</div>
       </div>
-      <div className="txt copy-right">©2017 - 上海闰芯科技有限公司 版权所有</div>
+      <div className="txt copy-right">
+        ©2017 - 上海闰芯科技有限公司 版权所有 | 
+        <a 
+          href="https://beian.miit.gov.cn/#/Integrated/index" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ color: 'inherit', textDecoration: 'none', marginLeft: '5px' }}
+        >
+          沪ICP备2024066709号-2
+        </a>
+      </div>
     </div>
   );
 }
