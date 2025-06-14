@@ -127,12 +127,12 @@ export default function About(props) {
               <div className="info-txt mt20">
                 中国电子器件集成供应链服务商，专业代理经销全球各大优秀品牌的全系列产品。
               </div>
-              <div className="info-txt mt20">联系电话：18721790998</div>
-              <div className="info-txt">工作时间：09:00-18:00</div>
+              {/* <div className="info-txt mt20">联系电话：18721790998</div> */}
+              <div className="info-txt mt20">工作时间：09:00-18:00</div>
               <div className="info-txt">邮箱：Shanghai@global-leapcore.com</div>
               <div className="info-txt">联系QQ：544184032</div>
               <div className="info-txt">
-                联系地址：上海市金山区朱泾镇秀江路280弄80号12幢113室
+                联系地址：上海市金山区朱泾镇秀江路280弄80号
               </div>
             </div>
           </div>

@@ -21,11 +21,11 @@ export default function Bottom(props) {
     <div className="bottom">
       <div className="item">
         <div className="txt">国内电子器件供应链服务一站式平台</div>
-        <div className="txt">地址：上海市金山区朱泾镇秀江路280弄80号12幢113室</div>
+        <div className="txt">地址：上海市金山区朱泾镇秀江路280弄80号</div>
       </div>
       <div className="item">
         <div className="txt">中国电子器件集成供应链服务商</div>
-        <div className="txt">邮箱：shanghai@ global-leapcore.com</div>
+        <div className="txt">邮箱：shanghai@global-leapcore.com</div>
       </div>
       <div className="item">
         <div className="txt">上海闰芯科技有限公司</div>
